@@ -40,3 +40,11 @@ add lines in `~/.tmux.conf`
 set-option -g set-clipboard on
 set-option -sa terminal-features ",*256color*:XT"
 ```
+
+#### 5. (Optional) Escape from terminal mode (if you use tmux)
+
+add line in `~/.tmux.conf`
+
+```
+set-option -sg escape-time 0
+```
