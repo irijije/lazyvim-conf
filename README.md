@@ -1,7 +1,10 @@
 ### Aritwoth's Editor
 
 A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
+
 Refer to the [documentation](https://lazyvim.github.io/installation) to get more information.
+
+Included default settings for Go, Python.
 
 #### 1. Install Neovim
 
@@ -22,11 +25,25 @@ git clone https://github.com/irijije/lazyvim-conf.git ~/.config/nvim
 rm -rf ~/.config/nvim/.git
 ```
 
-#### 3. (Optional) Install nerd font to display icon correctly
+#### 3. Install required packages
+
+##### Ubuntu
+
+```
+sudo apt install fd-find ripgrep nodejs
+```
+
+##### Rocky
+
+```
+sudo dnf install fd ripgrep nodejs
+```
+
+#### 4. (Optional) Install nerd font to display icon correctly
 
 [nerdfonts.com](https://www.nerdfonts.com/font-downloads)
 
-#### 4. (Optional) Clipboard setting
+#### 5. (Optional) Clipboard setting
 
 ##### Remote connection via SSH
 
@@ -41,7 +58,7 @@ set-option -g set-clipboard on
 set-option -sa terminal-features ",*256color*:XT"
 ```
 
-#### 5. (Optional) Escape from terminal mode (if you use tmux)
+#### 6. (Optional) Escape from terminal mode (if you use tmux)
 
 add line in `~/.tmux.conf`
 
