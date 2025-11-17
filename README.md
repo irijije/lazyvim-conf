@@ -11,7 +11,7 @@ Included default settings for Go, Python.
 ##### Linux
 
 ```
-wget ​​https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-linux-x86_64.appimage
+curl -LO https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-linux-x86_64.appimage
 cp nvim-linux-x86_64.appimage /usr/bin/nvim
 chmod 755 /usr/bin/nvim
 ```
