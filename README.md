@@ -11,7 +11,7 @@ Included default settings for Go, Python.
 ##### Linux
 
 ```
-curl -LO https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-linux-x86_64.appimage
+curl -LO https://github.com/neovim/neovim/releases/download/v0.11.5/nvim-linux-x86_64.appimage
 cp nvim-linux-x86_64.appimage /usr/bin/nvim
 chmod 755 /usr/bin/nvim
 ```
@@ -27,16 +27,25 @@ rm -rf ~/.config/nvim/.git
 
 #### 3. Install required packages
 
+##### Arch
+
+```
+sudo pacman -S nodejs python3
+sudo pacman -S fd ripgrep unzip lazygit gcc
+```
+
 ##### Ubuntu
 
 ```
-sudo apt install fd-find ripgrep nodejs
+sudo apt install nodejs python3
+sudo apt install fd-find ripgrep unzip lazygit gcc
 ```
 
 ##### Rocky
 
 ```
-sudo dnf install fd ripgrep nodejs
+sudo dnf install nodejs python3
+sudo dnf install fd ripgrep unzip lazygit gcc
 ```
 
 #### 4. (Optional) Install nerd font to display icon correctly
