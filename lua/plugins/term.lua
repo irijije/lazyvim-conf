@@ -8,5 +8,7 @@ return {
       desc = "Toggle Terminal (Right)",
     },
   },
-  opts = {},
+  opts = {
+    auto_scroll = false,
+  },
 }
