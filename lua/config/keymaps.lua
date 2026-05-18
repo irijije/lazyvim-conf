@@ -14,3 +14,4 @@ vim.api.nvim_create_autocmd("User", {
     vim.keymap.set("n", "<leader>gq", "<cmd>DiffviewClose<cr>", { desc = "Diffview Close" })
   end,
 })
+vim.keymap.set("n", "<leader>ao", "<leader>sw", { remap = true, desc = "Search current word" })
