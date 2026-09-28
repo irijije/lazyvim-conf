@@ -17,3 +17,44 @@ vim.filetype.add({
     [".*%.log%..*"] = "log",
   },
 })
+
+-- Handle OSC 9 notifications from terminal buffers (Antigravity CLI, build tools, etc.)
+vim.api.nvim_create_autocmd("TermRequest", {
+  desc = "Forward OSC 9 notifications to desktop and Neovim UI",
+  callback = function(ev)
+    local msg = string.match(ev.data.sequence, "^\027%]9;(.*)")
+    if msg and not string.match(msg, "^4;") then
+      local title = "Terminal"
+      local body = msg
+
+      -- 1. If message matches 'Title: Body', split it
+      local prefix, suffix = string.match(msg, "^(.-):%s*(.+)$")
+      if prefix and suffix and #prefix <= 25 then
+        title = prefix
+        body = suffix
+      -- 2. Detect Antigravity default message
+      elseif string.find(msg, "Antigravity") then
+        title = "Antigravity"
+      end
+
+      -- 1. Desktop notification (dunst)
+      vim.fn.jobstart({
+        "notify-send",
+        "-a",
+        "Terminal",
+        "-i",
+        "utilities-terminal",
+        title,
+        body,
+      })
+
+      -- 2. Neovim in-editor notification
+      vim.schedule(function()
+        vim.notify(body, vim.log.levels.INFO, {
+          title = title,
+        })
+      end)
+    end
+  end,
+})
+
